@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "DLIMS 2.1",
+      "hasCanvas": false,
+      "bodyTextLen": 759,
+      "bodyTextHash": "a44412be076f4a9c92168d18b79304c25a9ad4b4b14ce329b725aef8cf916379",
+      "bodyTextPrefix": "All DLIMS services are Powered by DLIMS 2.1 ONE WINDOW FOR ALL S",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "DLIMS 2.1",
+      "hasCanvas": false,
+      "bodyTextLen": 759,
+      "bodyTextHash": "a44412be076f4a9c92168d18b79304c25a9ad4b4b14ce329b725aef8cf916379",
+      "bodyTextPrefix": "All DLIMS services are Powered by DLIMS 2.1 ONE WINDOW FOR ALL S",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

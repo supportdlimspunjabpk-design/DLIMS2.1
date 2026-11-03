@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "DLIMS 2.1",
+      "hasCanvas": false,
+      "bodyTextLen": 3534,
+      "bodyTextHash": "3f6a5be70439635ec1f7346bf58a289a5ba7d14c9ab234c3c9d802700600c911",
+      "bodyTextPrefix": "All DLIMS services are Powered by دستک Dastak ONE WINDOW FOR ALL",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "DLIMS 2.1",
+      "hasCanvas": false,
+      "bodyTextLen": 3338,
+      "bodyTextHash": "b35ae21c65aaf39256b388fdeb885f1ac7ee82263b069d4121b3001dbf60ee77",
+      "bodyTextPrefix": "All DLIMS services are Powered by دستک Dastak ONE WINDOW FOR ALL",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

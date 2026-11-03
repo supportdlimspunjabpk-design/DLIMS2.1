@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  --color-leaf: #218c3d;
+  --color-leaf-deep: #146b32;
+  --color-leaf-soft: #e7f5ec;
+  --color-sprout: #8cc63f;
+  --color-gold: #f6b114;
+  --color-mustard: #e0b03a;
+  --color-gold-deep: #e5a600;
+  --color-gold-ink: #7a5600;
+  --color-navy: #163e8a;
+  --color-ink: #161616;
+  --color-paper: #ffffff;
+  --color-card: #ffffff;
+  --color-line: #d7dde6;
+  --color-muted: #b4bac3;
+  --color-danger: #c51616;
+  --color-star: #e10600;
+  --color-pill: #f1f2f4;
+  --color-ill: #eef3fb;
+  --color-radio: #1a73e8;
+  --color-on-leaf: #ffffff;
+  --color-on-navy: #ffffff;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-urdu: "Noto Nastaliq Urdu", serif;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  input[type="date"] {
+    min-height: 48px;
+    color-scheme: light;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible {
+    outline: 2px solid var(--color-leaf);
+    outline-offset: 2px;
+  }
+}
+
+.banner-flow {
+  background-color: #2f8f2a;
+  background-image:
+    radial-gradient(circle at 12% 30%, rgb(255 255 255 / 0.22) 0 16px, transparent 17px),
+    radial-gradient(circle at 22% 78%, rgb(190 230 110 / 0.45) 0 26px, transparent 27px),
+    radial-gradient(circle at 70% 18%, rgb(255 255 255 / 0.16) 0 20px, transparent 21px),
+    radial-gradient(circle at 84% 72%, rgb(255 255 255 / 0.14) 0 14px, transparent 15px),
+    radial-gradient(circle at 48% 110%, rgb(120 200 70 / 0.35) 0 34px, transparent 35px),
+    linear-gradient(100deg, #9ccc4a 0%, #4ea33a 38%, #1f7d34 72%, #166b30 100%);
+}
+
+.brand-marquee {
+  overflow: hidden;
+}
+
+.brand-track {
+  display: flex;
+  width: 300%;
+  animation: brandSlide 14s ease-in-out infinite;
+}
+
+.brand-slide {
+  width: 33.3333%;
+  flex: none;
+  height: 72px;
+}
+
+.banner-edge {
+  height: 3px;
+  background: linear-gradient(90deg, #9ccc4a, #f5c431, #ffffff, #166b30, #f5c431, #9ccc4a);
+  background-size: 200% 100%;
+  animation: edgeMove 3.5s linear infinite;
+}
+
+@keyframes brandSlide {
+  0%,
+  24% {
+    transform: translateX(0);
+  }
+  33%,
+  57% {
+    transform: translateX(-33.3333%);
+  }
+  66%,
+  90% {
+    transform: translateX(-66.6666%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes clickBlink {
+  0%,
+  45% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  55%,
+  100% {
+    opacity: 0.15;
+    transform: translateY(4px);
+  }
+}
+
+.click-blink {
+  animation: clickBlink 0.9s steps(2, end) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-track,
+  .banner-edge {
+    animation: none;
+  }
+}
+
+.mark-dlims {
+  color: #fff6d0;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  text-shadow:
+    0 1px 0 #fff,
+    0 2px 0 #e2b84a,
+    0 3px 0 #9a7414,
+    0 4px 3px rgb(12 60 24 / 0.45);
+}
+
+.mark-ver {
+  color: #f5c431;
+  text-shadow:
+    0 1px 0 #fff4c4,
+    0 2px 0 #a67c12,
+    0 3px 2px rgb(12 60 24 / 0.4);
+}
+
+.corner-fold {
+  background:
+    linear-gradient(135deg, transparent 50%, #3dbe63 50%) right bottom / 46px 70px no-repeat,
+    linear-gradient(135deg, transparent 46%, #1f9a45 46%) right bottom / 78px 92px no-repeat;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner-flow {
+    background-image: linear-gradient(100deg, #9ccc4a 0%, #1f7d34 100%);
+  }
+}
