@@ -139,7 +139,17 @@ export const listSharedLicenses = createServerFn({ method: "POST" })
     if (!isAdmin(data?.user, data?.password)) throw new Error("Not allowed");
     const sql = await getSql();
     await ensureDemo(sql);
-    const rows = await sql<Row>`select * from licenses order by updated_at desc`;
+    const rows = await sql<Row>`
+      select id, cnic, name, father, dob, district, address, phone, email,
+        case when octet_length(photo) > 90000 then '' else photo end as photo,
+        license_no, kind, vehicles, issue_date, valid_from, valid_to, status,
+        tracking_no, printed_on, dispatch_on, handler,
+        case when octet_length(coalesce(ecard, '')) > 0 then 'keep' else '' end as ecard,
+        case when octet_length(coalesce(learner_permit, '')) > 0 then 'keep' else '' end as learner_permit,
+        fee_confirmed
+      from licenses
+      order by updated_at desc
+    `;
     return rows.map(toRecord);
   });
 
@@ -197,7 +207,7 @@ export const saveSharedLicense = createServerFn({ method: "POST" })
         address = excluded.address,
         phone = excluded.phone,
         email = excluded.email,
-        photo = excluded.photo,
+        photo = case when excluded.photo = '' then licenses.photo else excluded.photo end,
         license_no = excluded.license_no,
         kind = excluded.kind,
         vehicles = excluded.vehicles,
@@ -209,8 +219,8 @@ export const saveSharedLicense = createServerFn({ method: "POST" })
         printed_on = excluded.printed_on,
         dispatch_on = excluded.dispatch_on,
         handler = excluded.handler,
-        ecard = excluded.ecard,
-        learner_permit = excluded.learner_permit,
+        ecard = case when excluded.ecard in ('', 'keep') then licenses.ecard else excluded.ecard end,
+        learner_permit = case when excluded.learner_permit in ('', 'keep') then licenses.learner_permit else excluded.learner_permit end,
         fee_confirmed = excluded.fee_confirmed,
         updated_at = now()
     `;
